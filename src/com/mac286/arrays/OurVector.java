@@ -1,5 +1,7 @@
 package com.mac286.arrays;
+
 import java.util.EmptyStackException;
+
 public class OurVector <T>{
     private T[] V;
     private int size, increment;
@@ -9,14 +11,12 @@ public class OurVector <T>{
     public OurVector(){
         this.V = (T[]) new Object[5];
         this.increment = 10;
-        size = 0;
     }
     //constructor that accepts an integer for initial capacity: creates an rray
     //of that capacity, sets increment to 10 and size to 0
     public OurVector(int cap){
         this.V = (T[]) new Object[cap];
         this.increment = 10;
-        size = 0;
     }
     //constructor that accepts both capacity and increment
     //creates an array of capacity and sets increment to input and size to 0
@@ -33,8 +33,15 @@ public class OurVector <T>{
         return V.length;
     }
     //method isEmpty() returns true is size is 0 and false if not
-    boolean isEmpty(){
+    public boolean isEmpty(){
         return (size == 0);
+    }
+    //get
+    public T get(int ind){
+        if (ind < 0 || ind > size-1){
+            throw new ArrayIndexOutOfBoundsException(ind);
+        }
+        return V[ind];
     }
     private void resize(){
         //TODO: implement later
@@ -140,13 +147,5 @@ public class OurVector <T>{
         }
         st += "]";
         return st;
-    }
-    // reverse method
-    public void reverse() {
-        for (int i = 0; i < size / 2; i++) {
-            T temp = V[i];
-            V[i] = V[size - 1 - i];
-            V[size - 1 - i] = temp;
-        }
     }
 }

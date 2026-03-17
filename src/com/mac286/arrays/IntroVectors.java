@@ -1,4 +1,5 @@
 package com.mac286.arrays;
+
 /*
 A Vector is a data structure that allows the use of an array in
 an easy way. You can add elements to an array at any index
@@ -11,9 +12,6 @@ Increment is a number by how much the Vector grows each time
 it reaches capacity
 
 */
-import java.sql.SQLOutput;
-import java.util.Scanner;
-import java.util.Vector;
 
 public class IntroVectors {
     public static void main(String args[]) {
@@ -63,21 +61,5 @@ public class IntroVectors {
         //IN ONE instruction move Hola from index 1 to 0. Display the vector
         Vec.add(0, Vec.remove(1));//What you remove at index 1 add it at index 0
         System.out.println("Vec: " + Vec);
-
-        //reverse HW2
-        Scanner sc = new Scanner(System.in);
-        OurVector<Double> D = new OurVector<Double>(10, 10);
-
-        System.out.println("Enter 10 double values:");
-        for (int i = 0; i < 10; i++) {
-            System.out.print("Value " + (i + 1) + ": ");
-            D.add(sc.nextDouble());
-        }
-
-        System.out.println("Original vector: " + D);
-
-        D.reverse();
-
-        System.out.println("Reversed vector: " + D);
     }
 }
