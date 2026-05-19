@@ -1,5 +1,5 @@
 package com.mac286.hashtables;
-
+/*
 public class OurHashtable <K, T>{
     private class Node<KK, TT>{
         private KK key;
@@ -117,8 +117,37 @@ public class OurHashtable <K, T>{
         }
         return st + "}";
     }
-    public T remove(){
 
-        return null;
+    private void Shift(int i){
+        int s =i;
+        while(H[(i+s)%H.length] != null){
+            int j = hashFunction(H[(i+s%H.length)].getKey()):
+            if (i< (i+s)%H.length) {
+                if (!(j>i && j<= (i+1)%H.length)){
+                    H[i]= H[(i+s)%H.length];
+                    H[(i+s)%H.length] = null;
+                    i= (i+s)%H.length;
+                    s=1;
+                }
+            }
+        }
+    }
+    public T remove(K k) {
+        int ind = hashFunction(k);
+        //as long as H[index] is not null
+        while (H[ind] != null) {
+            //compare key to key of this elements if equal, replace
+            //data and return
+            if (H[ind].key.equals(k)) {
+                T temp = H[ind].getData();
+                H[ind] = null;
+                Shift(ind);
+                size--;
+                return temp;
+            }
+
+        }
+
     }
 }
+*/
